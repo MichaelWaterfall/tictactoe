@@ -9,6 +9,29 @@ endMessage.style.marginTop = '30px';
 endMessage.style.textAlign = 'center';
 board.after(endMessage);
 
+for(let i = 0; i < squares.length; i++) {
+    squares[i].addEventListener('click', () => {
+        if(squares[i].textContent !== '') {
+            return;
+        }
+        squares[i].textContent = currentPlayer;
+        if(checkWin(currentPlayer)) {
+            endMessage.textContent = `Game over ${currentPlayer} wins`;
+            return
+        }
+        if(checkTie()) {
+            endMessage.textContent = 'Game is tied';
+            return
+        }
+        currentPlayer = (currentPlayer === players[0]) ? players[1] : players[0];
+        if(currentPlayer == players[0]) {
+            endMessage.textContent = `X's turn`;
+        } else {
+            endMessage.textContent = `O's turn`
+        }
+    });
+}
+
 const winningCombinations =
 [
     [0, 1, 2],
