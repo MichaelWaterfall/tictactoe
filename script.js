@@ -1,5 +1,5 @@
 const board = document.getElementById("board");
-const square = document.getElementsByClassName("square");
+const squares = document.getElementsByClassName("square");
 const players = ["X", "O"];
 let currentPlayer = players[0];
 
@@ -22,7 +22,11 @@ const winningCombinations =
 ];
 
 function checkWin(currentPlayer) {
-    if() {
-        
+    for(let i = 0; i < winningCombinations.length; i++) {
+        const [a, b, c] = winningCombinations[i];
+        if(squares[a].textContent === currentPlayer && squares[b].textContent === currentPlayer && squares[c].textContent === currentPlayer) {
+            return true;
+        }
     }
+    return false;
 }
