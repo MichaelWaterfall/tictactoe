@@ -1,1 +1,1 @@
-console.log("test");
+const board = document.getElementById("board");
