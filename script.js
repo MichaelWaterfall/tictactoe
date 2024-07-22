@@ -39,3 +39,11 @@ function checkTie() {
     }
     return true;
 }
+
+function restartButton() {
+    for(let i = 0; i < squares.length; i++) {
+        squares[i].textContent = "";
+    }
+    endMessage.textContent = `X's turn`;
+    currentPlayer = players[0];
+}
